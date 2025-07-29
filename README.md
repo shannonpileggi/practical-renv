@@ -2,15 +2,15 @@
 
 A posit::conf(2025) talk.
 
+# abstract
+
+The {renv} package aims to *help* users create reproducible environments for R projects. In theory, this is great! In practice, restoring a package environment can be a frustrating process due to overlooked R configuration requirements. Join me to better understand the source of environment restoration issues and learn strategies for successful maintenance of {renv}-backed projects.
+
 # slides
 
 Made in google slides. <insert link>
 
 text `#E8E9F0`; background `#30304B`; accent `#C3D350`
-
-# abstract
-
-The {renv} package aims to *help* users create reproducible environments for R projects. In theory, this is great! In practice, restoring a package environment can be a frustrating process due to overlooked R configuration requirements. Join me to better understand the source of environment restoration issues and learn strategies for successful maintenance of {renv}-backed projects.
 
 # background
 
