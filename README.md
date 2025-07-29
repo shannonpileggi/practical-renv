@@ -6,9 +6,7 @@ A posit::conf(2025) talk.
 
 Made in google slides. <insert link>
 
-* text `#E8E9F0`
-* background `#30304B`
-* accent `#C3D350`
+text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
 # abstract
 
