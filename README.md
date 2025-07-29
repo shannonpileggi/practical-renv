@@ -55,7 +55,7 @@ As {glue} has few releases, {jsonlite} ended up being a better package to demons
 I used docker containers to assess workflows under various conditions. You can try this, too! 
 
 ```
-docker run --rm -ti -e DISABLE_AUTH=true -p 127.0.0.1:8787:8787 rocker/rstudio:4.4.2
+docker run --rm -ti -e DISABLE_AUTH=true -p 127.0.0.1:8787:8787 rocker/rstudio:4.5.1
 ```
 
 Open `localhost:8787` in browser to see RStudio interface.
