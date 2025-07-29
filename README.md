@@ -74,10 +74,12 @@ These are tips that I did not have the time to include in the presentation.
    snapshot date, and environment.
 
 3. Set your default repository for package installation to p3m. You can add multiple repositories. This url is for latest package versions on Windows.
-   -> `usethis::edit_r_profile()`
-   -> in .Rprofile, add `options("repos" = c("p3m" = "https://packagemanager.posit.co/cran/latest"))`
 
-4.  Watch the [Personal R Administration](https://www.youtube.com/watch?v=m2eihAhl8so) workshop from the 2025 R in Medicine conference for more details on these topics.
+    -> `usethis::edit_r_profile()`
+
+    -> in .Rprofile, add `options("repos" = c("p3m" = "https://packagemanager.posit.co/cran/latest"))`
+
+5.  Watch the [Personal R Administration](https://www.youtube.com/watch?v=m2eihAhl8so) workshop from the 2025 R in Medicine conference for more details on these topics.
 
 ## {renv} tips
 
@@ -96,8 +98,4 @@ renv::record("renv")
 4. The default mode for capturing package dependencies is implicit, in which `renv::dependencies()` parses all .R, .Rmd, .qmd and DESCRIPTION files for packages used. This can lead to slow project start up or restart up if there are many files to scan. You can change this to [explict](https://rstudio.github.io/renv/articles/faq.html?q=explicit#capturing-explicit-dependencies), which captures dependencies in the `DESCRIPTION` file only (no longer parses files).
 
 5. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released).
-6. 
-7. 
-8. 
-9. 
-10. 
+
