@@ -42,10 +42,10 @@ text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
 I created two example projects to demonstrate resuming projects over time. Both have the package repository set to CRAN at <https://cloud.r-project.org>.
 
-|   | project                                                                                                  | R version | {renv} version | package       |simulated initialization date      |
-| - | -------------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------- |
-| 1 | [glue-example](https://github.com/shannonpileggi/glue-example)         | 4.3.1     | 1.0.0          | glue v1.6.2   | 2023-08-01 |
-| 2 | [jsonlite-example](https://github.com/shannonpileggi/jsonlite-example) | 4.4.2     | 1.1.0          | jsonlite1.8.9 | 2025-02-01 |
+|   | project                                                                | R version | {renv} version | package       | simulated initialization date |
+| - | -----------------------------------------------------------------------| --------- | -------------- | ------------- | ----------------------------- |
+| 1 | [glue-example](https://github.com/shannonpileggi/glue-example)         | 4.3.1     | 1.0.0          | glue v1.6.2   |  2023-08-01                   |
+| 2 | [jsonlite-example](https://github.com/shannonpileggi/jsonlite-example) | 4.4.2     | 1.1.0          | jsonlite1.8.9 |  2025-02-01                   |
 
 I intially started working with the {glue} example. However, enough changed between the 1.0.0 and 1.1.0 release of {renv} to substantially complicate the presentation. 
 As {glue} has few releases, {jsonlite} ended up being a better package to demonstrate changes over time that line up with more recent {renv} releases.
