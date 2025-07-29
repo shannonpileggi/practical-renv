@@ -38,30 +38,6 @@ text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
 * rstudio::conf(2022), E. David Aja, [You should use renv](https://www.youtube.com/watch?v=GwVx_pf2uz4)
 
-# example projects
-
-I created two example projects to demonstrate resuming projects over time. Both have the package repository set to CRAN at <https://cloud.r-project.org>.
-
-|   | project                                                                | R version | {renv} version | package       | simulated initialization date |
-| - | -----------------------------------------------------------------------| --------- | -------------- | ------------- | ----------------------------- |
-| 1 | [glue-example](https://github.com/shannonpileggi/glue-example)         | 4.3.1     | 1.0.0          | glue 1.6.2   |  2023-08-01                   |
-| 2 | [jsonlite-example](https://github.com/shannonpileggi/jsonlite-example) | 4.4.2     | 1.1.0          | jsonlite 1.8.9 |  2025-02-01                   |
-
-I intially started working with the {glue} example. However, enough changed between the 1.0.0 and 1.1.0 release of {renv} to substantially complicate the presentation. 
-As {glue} has few releases, {jsonlite} ended up being a better package to demonstrate changes over time that line up with more recent {renv} releases.
-
-# project playground
-
-I used docker containers to assess workflows under various conditions. You can try this, too! 
-
-```
-docker run --rm -ti -e DISABLE_AUTH=true -p 127.0.0.1:8787:8787 rocker/rstudio:4.5.1
-```
-
-Open `localhost:8787` in browser to see RStudio interface.
-
-File -> New project -> `https://github.com/shannonpileggi/jsonlite-example`
-
 # more tips
 
 These are tips that I did not have the time to include in the presentation.
@@ -99,7 +75,7 @@ renv::record("renv")
 
 5. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released).
    
-6. [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) has a lot of arguments. Read the help file! In particular, if you suffer from time consuming installation in which one single package fails and you have to start over with all of your installations, try `renv::restore(transactional = FALSE)`
+6. [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) has a lot of arguments. Read the help file! In particular, if you suffer from a time consuming installation in which one single package fails and you have to start over with all of your installations, try `renv::restore(transactional = FALSE)`.
 
 7. You can see different installation behaviors depending on the version of {renv} and whether or not your cache has any version of that package populated vs no version at all of that package.
 
@@ -108,4 +84,28 @@ renv::record("renv")
 pkgs <- renv::lockfile_read("renv.lock")
 install.packages(names(pkgs$Packages))
 ```
+
+# example projects
+
+I created two example projects to demonstrate resuming projects over time. Both have the package repository set to CRAN at <https://cloud.r-project.org>.
+
+|   | project                                                                | R version | {renv} version | package       | simulated initialization date |
+| - | -----------------------------------------------------------------------| --------- | -------------- | ------------- | ----------------------------- |
+| 1 | [glue-example](https://github.com/shannonpileggi/glue-example)         | 4.3.1     | 1.0.0          | glue 1.6.2   |  2023-08-01                   |
+| 2 | [jsonlite-example](https://github.com/shannonpileggi/jsonlite-example) | 4.4.2     | 1.1.0          | jsonlite 1.8.9 |  2025-02-01                   |
+
+I intially started working with the {glue} example. However, enough changed between the 1.0.0 and 1.1.0 release of {renv} to substantially complicate the presentation. 
+As {glue} has few releases, {jsonlite} ended up being a better package to demonstrate changes over time that line up with more recent {renv} releases.
+
+# project playground
+
+I used docker containers to assess workflows under various conditions. You can try this, too! 
+
+```
+docker run --rm -ti -e DISABLE_AUTH=true -p 127.0.0.1:8787:8787 rocker/rstudio:4.5.1
+```
+
+Open `localhost:8787` in browser to see RStudio interface.
+
+File -> New project -> `https://github.com/shannonpileggi/jsonlite-example`
 
