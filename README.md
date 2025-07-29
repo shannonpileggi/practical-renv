@@ -60,4 +60,4 @@ docker run --rm -ti -e DISABLE_AUTH=true -p 127.0.0.1:8787:8787 rocker/rstudio:4
 
 Open `localhost:8787` in browser to see RStudio interface.
 
-File -> New project -> https://github.com/shannonpileggi/glue-example
+File -> New project -> `https://github.com/shannonpileggi/jsonlite-example`
