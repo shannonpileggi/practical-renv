@@ -28,7 +28,7 @@ text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
   + Jul 2023 [v1.0.0](https://github.com/rstudio/renv/releases/tag/v1.0.0) released
 
-     - May 2023 substanstial documentation updates <https://github.com/rstudio/renv/pull/1236>
+     - May 2023 substantial documentation updates <https://github.com/rstudio/renv/pull/1236>
     
   + Jan 2025 v1.1.0 released
 
