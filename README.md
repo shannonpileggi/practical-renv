@@ -44,7 +44,7 @@ These are tips that I did not have the time to include in the presentation.
 
 ## general tips
 
-1. Use [rig](https://github.com/r-lib/rig) to manage your R versions.
+1. You can install/use multiple R versions and switch as needed for different projects. Consider [rig](https://github.com/r-lib/rig) to manage your R versions.
 
 2. Use the `SETUP` interface on p3m at <[https://packagemanager.posit.co/client/#/](https://packagemanager.posit.co/client/#/repos/cran/setup)> to retrieve the URL for your operating system,
    snapshot date, and environment.
