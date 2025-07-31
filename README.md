@@ -60,10 +60,22 @@ These are tips that I did not have the time to include in the presentation.
 ## {renv} tips
 
 1. The location of the global cache has changed with different versions of {renv}. This can lead to confusing results/messaging if you are switching between {renv} versions (e.g., seeing that a package is not installed but you thought it was).
-   
-2. You should probably use {renv} ≥ v1.1.0.
 
-3. `renv::upgrade()` is expected to work for {renv} versions ≥ 1.0.1. To upgrade from prior versions of {renv}, users should
+2. Inspect the packages installed in your libraries
+
+   + names only `lapply(.libPaths(), list.files)`
+     
+   + data frame with full details
+  
+```
+df_pkg <- lapply(.libPaths(), \(x) as.data.frame(installed.packages(x))) |>
+    tibble::enframe() |> 
+    tidyr::unnest(cols = c(value))
+```
+   
+3. You should probably use {renv} ≥ v1.1.0.
+
+4. `renv::upgrade()` is expected to work for {renv} versions ≥ 1.0.1. To upgrade from prior versions of {renv}, users should
 ```
 renv::deactivate()
 install.packages("renv")
@@ -71,15 +83,15 @@ renv::activate()
 renv::record("renv")
 ```
 
-4. The default mode for capturing package dependencies is implicit, in which `renv::dependencies()` parses all .R, .Rmd, .qmd and DESCRIPTION files for packages used. This can lead to slow project start up or restart up if there are many files to scan. You can change this to [explict](https://rstudio.github.io/renv/articles/faq.html?q=explicit#capturing-explicit-dependencies), which captures dependencies in the `DESCRIPTION` file only (no longer parses files).
+5. The default mode for capturing package dependencies is implicit, in which `renv::dependencies()` parses all .R, .Rmd, .qmd and DESCRIPTION files for packages used. This can lead to slow project start up or restart up if there are many files to scan. You can change this to [explict](https://rstudio.github.io/renv/articles/faq.html?q=explicit#capturing-explicit-dependencies), which captures dependencies in the `DESCRIPTION` file only (no longer parses files).
 
-5. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released).
+6. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released).
    
-6. [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) has a lot of arguments. Read the help file! In particular, if you suffer from a time consuming installation in which one single package fails and you have to start over with all of your installations, try `renv::restore(transactional = FALSE)`.
+7. [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) has a lot of arguments. Read the help file! In particular, if you suffer from a time consuming installation in which one single package fails and you have to start over with all of your installations, try `renv::restore(transactional = FALSE)`.
 
-7. You can see different installation behaviors depending on the version of {renv} and whether or not your cache has any version of that package populated vs no version at all of that package.
+8. You can see different installation behaviors depending on the version of {renv} and whether or not your cache has any version of that package populated vs no version at all of that package.
 
-8. When all else fails, force installation of latest versions.
+9. When all else fails, force installation of latest versions.
 ```
 pkgs <- renv::lockfile_read("renv.lock")
 install.packages(names(pkgs$Packages))
