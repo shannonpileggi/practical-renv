@@ -8,7 +8,7 @@ The {renv} package aims to *help* users create reproducible environments for R p
 
 # slides
 
-Made in google slides. <insert link>
+Made in google slides. [slide deck linked here](https://docs.google.com/presentation/d/1MTjQujGJda1L4pFNNOjhyPpYYJtl4jReOAtFDjn1wtc/edit?usp=sharing)
 
 text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
@@ -85,7 +85,7 @@ renv::record("renv")
 
 5. The default mode for capturing package dependencies is implicit, in which `renv::dependencies()` parses all .R, .Rmd, .qmd and DESCRIPTION files for packages used. This can lead to slow project start up or restart up if there are many files to scan. You can change this to [explict](https://rstudio.github.io/renv/articles/faq.html?q=explicit#capturing-explicit-dependencies), which captures dependencies in the `DESCRIPTION` file only (no longer parses files).
 
-6. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released).
+6. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released). Note that using `renv::checkout(date = "xxxx-xx-xx")` also forces the version of {renv} to be latest available at that date.
    
 7. [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) has a lot of arguments. Read the help file! In particular, if you suffer from a time consuming installation in which one single package fails and you have to start over with all of your installations, try `renv::restore(transactional = FALSE)`.
 
@@ -107,11 +107,12 @@ I created two example projects to demonstrate resuming projects over time. Both 
 | 2 | [jsonlite-example](https://github.com/shannonpileggi/jsonlite-example) | 4.4.2     | 1.1.0          | jsonlite 1.8.9 |  2025-02-01                   |
 
 I intially started working with the {glue} example. However, enough changed between the 1.0.0 and 1.1.0 release of {renv} to substantially complicate the presentation. 
-As {glue} has few releases, {jsonlite} ended up being a better package to demonstrate changes over time that line up with more recent {renv} releases.
+As {glue} has few releases, {jsonlite} ended up being a better package to demonstrate changes over time that line up with more recent {renv} releases. However, it may
+have also been a poor example choice as {jsonlite} is listed as a "Suggests" for {renv}.
 
 # project playground
 
-I used docker containers to assess workflows under various conditions. You can try this, too! 
+I experimented with {renv} on both my local Windows computer and in docker containers.
 
 ```
 docker run --rm -ti -e DISABLE_AUTH=true -p 127.0.0.1:8787:8787 rocker/rstudio:4.5.1
@@ -122,3 +123,7 @@ Open `localhost:8787` in browser to see RStudio interface.
 ```
 git clone https://github.com/shannonpileggi/jsonlite-example
 ```
+
+# contributions welcome
+
+Other tips you want to add or anything else? Feel free to create an issue.
