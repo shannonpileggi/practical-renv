@@ -38,11 +38,20 @@ text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
 * rstudio::conf(2022), E. David Aja, [You should use renv](https://www.youtube.com/watch?v=GwVx_pf2uz4)
 
-# more tips
+# tips
 
 These are tips that I did not have the time to include in the presentation.
 
 ## general tips
+
+1. Manage expectations when using {renv}. Keep in mind that {renv} is a tool that falls in the middle of the reproducibilty spectrum; accordingly, there is user responsibility to ensure package installation requirements are met.
+2. The happy path is to update R and packages regularly.
+3. Keep projects small in scope.
+   + When you update R and packages, test everything to make sure it still works without error. More items to test means more possible failure points.
+   + More package dependencies could also potential points of failure in {renv} restoration.
+5. Install binaries when available to speed up installation and reduce complications from source installation.
+
+## non-{renv} tips
 
 1. You can install/use multiple R versions and switch as needed for different projects. Consider [rig](https://github.com/r-lib/rig) to manage your R versions.
 
@@ -55,13 +64,7 @@ These are tips that I did not have the time to include in the presentation.
 
     -> in .Rprofile, add `options("repos" = c("p3m" = "https://packagemanager.posit.co/cran/latest"))`
 
-5.  Watch the [Personal R Administration](https://www.youtube.com/watch?v=m2eihAhl8so) workshop from the 2025 R in Medicine conference for more details on these topics.
-
-## {renv} tips
-
-1. The location of the global cache has changed with different versions of {renv}. This can lead to confusing results/messaging if you are switching between {renv} versions (e.g., seeing that a package is not installed but you thought it was).
-
-2. Inspect the packages installed in your libraries
+4.  Inspect the packages installed in your libraries
 
    + names only `lapply(.libPaths(), list.files)`
      
@@ -72,10 +75,22 @@ df_pkg <- lapply(.libPaths(), \(x) as.data.frame(installed.packages(x))) |>
     tibble::enframe() |> 
     tidyr::unnest(cols = c(value))
 ```
-   
-3. You should probably use {renv} ≥ v1.1.0.
 
-4. `renv::upgrade()` is expected to work for {renv} versions ≥ 1.0.1. To upgrade from prior versions of {renv}, users should
+5.  Watch the [Personal R Administration](https://www.youtube.com/watch?v=m2eihAhl8so) workshop from the 2025 R in Medicine conference for more details on these topics.
+
+## factors that can affect {renv} behavior
+
+1. {renv} version
+2. configured repositories
+3. whether or not packages are already installed vs not yet installed in system library / cache.
+
+## {renv} tips
+
+1. The location of the global cache has changed with different versions of {renv}. This can lead to confusing results/messaging if you are switching between {renv} versions (e.g., seeing that a package is not installed but you thought it was).
+   
+2. You should probably use {renv} ≥ v1.1.0.
+
+3. `renv::upgrade()` is expected to work for {renv} versions ≥ 1.0.1. To upgrade from prior versions of {renv}, users should
 ```
 renv::deactivate()
 install.packages("renv")
@@ -83,15 +98,15 @@ renv::activate()
 renv::record("renv")
 ```
 
-5. The default mode for capturing package dependencies is implicit, in which `renv::dependencies()` parses all .R, .Rmd, .qmd and DESCRIPTION files for packages used. This can lead to slow project start up or restart up if there are many files to scan. You can change this to [explict](https://rstudio.github.io/renv/articles/faq.html?q=explicit#capturing-explicit-dependencies), which captures dependencies in the `DESCRIPTION` file only (no longer parses files).
+4. The default mode for capturing package dependencies is implicit, in which `renv::dependencies()` parses all .R, .Rmd, .qmd and DESCRIPTION files for packages used. This can lead to slow project start up or restart up if there are many files to scan. You can change this to [explict](https://rstudio.github.io/renv/articles/faq.html?q=explicit#capturing-explicit-dependencies), which captures dependencies in the `DESCRIPTION` file only (no longer parses files).
 
-6. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released). Note that using `renv::checkout(date = "xxxx-xx-xx")` also forces the version of {renv} to be latest available at that date.
+5. `renv::checkout()` is recommended for use after 2023-07-07 (v1.0.0 of {renv}, when the checkout function was released). Note that using `renv::checkout(date = "xxxx-xx-xx")` also forces the version of {renv} to be latest available at that date.
    
-7. [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) has a lot of arguments. Read the help file! In particular, if you suffer from a time consuming installation in which one single package fails and you have to start over with all of your installations, try `renv::restore(transactional = FALSE)`.
+6. [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html) has a lot of arguments. Read the help file! In particular, if you suffer from a time consuming installation in which one single package fails and you have to start over with all of your installations, try `renv::restore(transactional = FALSE)`.
 
-8. You can see different installation behaviors depending on the version of {renv} and whether or not your cache has any version of that package populated vs no version at all of that package.
+7. You can see different installation behaviors depending on the version of {renv} and whether or not your cache has any version of that package populated vs no version at all of that package.
 
-9. When all else fails, force installation of latest versions.
+8. When all else fails, force installation of latest versions.
 ```
 pkgs <- renv::lockfile_read("renv.lock")
 install.packages(names(pkgs$Packages))
