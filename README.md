@@ -82,6 +82,8 @@ df_pkg <- lapply(.libPaths(), \(x) as.data.frame(installed.packages(x))) |>
     tidyr::unnest(cols = c(value))
 ```
 
+5. Check if you can compile packages from source with `pkgbuild::check_build_tools()`. Another handy function that returns more details about your system setup is [`devtools::dev_sitrep()`](https://devtools.r-lib.org/reference/dev_sitrep.html).
+
 5.  Watch the [Personal R Administration](https://www.youtube.com/watch?v=m2eihAhl8so) workshop from the 2025 R in Medicine conference for more details on these topics.
 
 ## factors that can affect {renv} behavior
