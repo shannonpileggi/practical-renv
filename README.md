@@ -10,12 +10,8 @@ The {renv} package aims to *help* users create reproducible environments for R p
 
 Made in google slides. [slide deck linked here](https://docs.google.com/presentation/d/1MTjQujGJda1L4pFNNOjhyPpYYJtl4jReOAtFDjn1wtc/edit?usp=sharing)
 
-text `#E8E9F0`; background `#30304B`; accent `#C3D350`
+ * text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
-media
-
- * [plant photo](https://unsplash.com/photos/green-succulent-plants-on-brown-clay-pots-bf0FRl7p_rE) by Vera Cho on Unsplash
- * [framework photo](https://unsplash.com/photos/black-metal-canopy-frame-dSRhwPe6v9c) by D R on Unsplash
  * [pudgy penguin gifs](https://giphy.com/pudgypenguins) from GIPHY
 
 # background
