@@ -8,7 +8,7 @@ The {renv} package aims to *help* users create reproducible environments for R p
 
 # slides
 
-Made in google slides. [slide deck linked here](https://docs.google.com/presentation/d/1MTjQujGJda1L4pFNNOjhyPpYYJtl4jReOAtFDjn1wtc/edit?usp=sharing)
+Made in google slides. [practical-renv.pdf](practical-renv.pdf)
 
  * text `#E8E9F0`; background `#30304B`; accent `#C3D350`
 
