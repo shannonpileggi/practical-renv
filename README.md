@@ -116,6 +116,41 @@ pkgs <- renv::lockfile_read("renv.lock")
 install.packages(names(pkgs$Packages))
 ```
 
+## resume project: decisions
+
+1. "freeze" packages (maintain package versions)
+   ```
+   # 3 options
+   # install package versions from repository specified in lockfile 
+   renv::restore()
+
+   # install package versions from P3M
+   renv::restore(repos = c("P3M" = "https://packagemanager.posit.co/cran/latest"))
+
+   # install date-based package versions from P3M
+   renv::checkout(date = "2025-02-01")
+   ```
+   
+2. "manage" packages (one off package upgrades)
+   ```
+   # 2 steps
+   # install latest package version from repository specified in lockfile 
+   renv::install("jsonlite")
+   renv::snapshot()
+   ```
+3. update packages (bring all packages to latest versions)
+   ```
+   # 3 steps
+   # use latest version of renv 
+   renv::upgrade()
+
+   #install all latest package versions
+   renv::install()
+
+   # record changes to both R version and package versions in lockfile
+   renv::snapshot()
+   ```
+
 # example projects
 
 I created two example projects to demonstrate resuming projects over time. Both have the package repository set to CRAN at <https://cloud.r-project.org>.
