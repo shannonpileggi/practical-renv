@@ -120,7 +120,7 @@ install.packages(names(pkgs$Packages))
 
 1. "freeze" packages (maintain package versions)
    ```
-   # 3 options
+   # 3 options ----
    # install package versions from repository specified in lockfile 
    renv::restore()
 
@@ -133,18 +133,18 @@ install.packages(names(pkgs$Packages))
    
 2. "manage" packages (one off package upgrades)
    ```
-   # 2 steps
+   # 2 steps ----
    # install latest package version from repository specified in lockfile 
    renv::install("jsonlite")
    renv::snapshot()
    ```
 3. update packages (bring all packages to latest versions)
    ```
-   # 3 steps
+   # 3 steps ----
    # use latest version of renv 
    renv::upgrade()
 
-   #install all latest package versions
+   # install all latest package versions
    renv::install()
 
    # record changes to both R version and package versions in lockfile
