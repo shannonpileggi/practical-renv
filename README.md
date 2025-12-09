@@ -40,6 +40,8 @@ Made in google slides. [practical-renv.pdf](practical-renv.pdf)
 
 * rstudio::conf(2022), E. David Aja, [You should use renv](https://www.youtube.com/watch?v=GwVx_pf2uz4)
 
+* posit::conf(2025), Shannon Pileggi [practical {renv}](https://www.youtube.com/watch?v=l01u7Ue9pIQ&t=2s)
+
 # tips
 
 These are tips that I did not have the time to include in the presentation.
